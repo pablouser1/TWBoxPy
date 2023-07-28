@@ -1,6 +1,11 @@
 # TWBoxPy
 Simple box art downloader from GameTDB deisgned for TwilightMenu++
 
+## Features
+* Cross-platform (Windows, Mac and Linux)
+* Multi-language
+* Ready to use for TwilightMenu++
+
 ## Requirements
 * Python3
 * python-requests
@@ -12,7 +17,10 @@ pip install -r requirements.txt
 
 ## Usage
 ```bash
-python3 twbox.py IN_DIR --language EN --output ./out
+# In this example, the program will scan nds files from IN_DIR,
+# try to download covers in english, spanish and then japanese
+# and save all covers in ./out
+python3 twbox.py IN_DIR --languages EN ES JA --output ./out
 ```
 
 You can get more info about how to use the CLI tool with:
