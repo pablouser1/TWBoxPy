@@ -51,6 +51,7 @@ def main():
     parser.add_argument('-o', '--output', default="./out", help="Output folder where the images will be downloaded, defaults to ./out")
     parser.add_argument('-r', '--regions', nargs="+", default=['EN'], help="Regions to download the covers from top to bottom priority. Defaults to EN. Available: EN, ES, FR, IT...")
     parser.add_argument('-v', '--verbose', action='store_true', default=False, help="Make program verbose")
+    parser.add_argument('--overwrite', action='store_true', default=False, help="Ignore if cover already exists and overwrite")
 
     args = parser.parse_args()
 
@@ -66,7 +67,7 @@ def main():
 
     for f in files:
         ndsName, ndsId = getRomInfo(f)
-        if not os.path.exists(os.path.join(args.output, "{0}.png".format(ndsId))):
+        if args.overwrite or not os.path.exists(os.path.join(args.output, "{0}.png".format(ndsId))):
             print("Getting {0}: {1}".format(ndsName, ndsId))
             success, code = downloadArt(ndsId, args.regions, args.output, args.verbose)
 
