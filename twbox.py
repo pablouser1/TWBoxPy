@@ -3,7 +3,7 @@ import argparse
 from glob import glob
 import requests
 
-BASE_URL = "https://art.gametdb.com/ds/box/{language}/{ndsId}.png"
+BASE_URL = "https://art.gametdb.com/ds/coverS/{language}/{ndsId}.png"
 
 def getFiles(inPath: str)-> list:
     path = os.path.join(inPath, "*.nds")
